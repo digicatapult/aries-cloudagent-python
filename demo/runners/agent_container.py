@@ -1108,17 +1108,6 @@ async def test_main(
         await airops_container.initialize()
         await caa_container.initialize()
 
-        # consortiq create invitation
-        # invite = await consortiq_container.generate_invitation()
-
-        # alice accept invitation
-        # invite_details = invite["invitation"]
-        # connection = await alice_container.input_invitation(invite_details)
-
-        # wait for consortiq connection to activate
-        # await consortiq_container.detect_connection()
-        # await alice_container.detect_connection()
-
         log_msg("Sleeping ...")
         await asyncio.sleep(3.0)
 
@@ -1137,8 +1126,11 @@ async def test_main(
                 log_msg("Shutting down consortiq agent ...")
                 await consortiq_container.terminate()
             if airops_container:
-                log_msg("Shutting down consortiq agent ...")
-                await consortiq_container.terminate()
+                log_msg("Shutting down airops agent ...")
+                await airops_container.terminate()
+            if caa_container:
+                log_msg("Shutting down caa agent ...")
+                await caa_container.terminate()
         except Exception as e:
             LOGGER.exception("Error terminating agent:", e)
             terminated = False
