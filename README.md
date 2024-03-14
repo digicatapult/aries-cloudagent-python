@@ -1,5 +1,9 @@
 # Fly2plan Aries Cloud Agent - Python  <!-- omit in toc -->
 
+## Deprecation Notice
+This application was deprecated on March 14th 2024, there will be no further dependency or security updates.
+---
+
 
 > An easy to use Aries agent for building SSI services using any language that supports sending/receiving HTTP requests.
 
